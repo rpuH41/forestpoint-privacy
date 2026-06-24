@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.liulkovich.florapoint",
+    "sha256_cert_fingerprints": [
+      "A7:E1:EF:5D:5B:7B:69:E7:CE:62:F4:05:BC:99:7F:2E:B4:AF:8A:87:5F:E1:29:88:17:95:EB:91:3C:19:A0:E2"
+    ]
+  }
+}]
