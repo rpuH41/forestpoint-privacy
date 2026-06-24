@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloraPoint</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #eef5ef;
+            color: #0a4d47;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 { font-size: 2em; margin-bottom: 8px; }
+        p { color: #555; margin-bottom: 32px; }
+        .btn {
+            background: #1B5E20;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍄 FloraPoint</h1>
+    <p>Установите приложение, чтобы открыть эту точку на карте</p>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.liulkovich.florapoint">
+        Скачать в Google Play
+    </a>
+
+    <script>
+        // Пробуем открыть через App Link
+        const params = new URLSearchParams(window.location.search);
+        const lat = params.get('lat');
+        const lon = params.get('lon');
+        const name = params.get('name');
+        const category = params.get('category');
+
+        if (lat && lon) {
+            // Пробуем открыть deep link в приложении
+            const deepLink = `florapoint://point?lat=${lat}&lon=${lon}&name=${encodeURIComponent(name || '')}&category=${category || 'custom'}`;
+            window.location.href = deepLink;
+
+            // Если приложение не открылось за 2 секунды — остаёмся на странице
+            setTimeout(() => {
+                // Страница уже видна, ничего не делаем
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
