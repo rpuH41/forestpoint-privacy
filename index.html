@@ -159,23 +159,23 @@
 </head>
 <body>
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+  <button class="lang-btn" onclick="setLang('ru')">RU</button>
   &nbsp;
   <button class="lang-btn" onclick="setLang('en')">EN</button>
 </div>
 
 <header>
   <span class="leaf">🌿</span>
-  <h1>Политика конфиденциальности</h1>
-  <p class="subtitle" id="subtitle-ru">Последнее обновление: июня 2026</p>
-  <p class="subtitle" id="subtitle-en" style="display:none">Last updated: June 2026</p>
+  <h1 id="main-title"></h1>
+  <p class="subtitle" data-lang="ru">Последнее обновление: июнь 2026</p>
+  <p class="subtitle" data-lang="en">Last updated: June 2026</p>
 </header>
 
 <main>
   <!-- SECTION 1 -->
   <div class="section">
     <span class="section-icon">📋</span>
-    <div data-lang="ru" class="visible">
+    <div data-lang="ru">
       <h2>Какие данные мы собираем</h2>
       <ul>
         <li><strong>Локальные данные</strong> — все ваши приватные точки, описания и настройки хранятся только на устройстве.</li>
@@ -200,7 +200,7 @@
   <!-- SECTION 2 -->
   <div class="section">
     <span class="section-icon">🔄</span>
-    <div data-lang="ru" class="visible">
+    <div data-lang="ru">
       <h2>Публичные и приватные точки</h2>
       <p>По умолчанию все создаваемые точки — <strong>приватные</strong> и остаются только на вашем устройстве.</p>
       <p>Вы можете сделать точку публичной, поставив галочку «Поделиться с сообществом». Только в этом случае она будет загружена в Firebase Firestore и станет видна другим пользователям.</p>
@@ -217,7 +217,7 @@
   <!-- SECTION 3 -->
   <div class="section">
     <span class="section-icon">🗄️</span>
-    <div data-lang="ru" class="visible">
+    <div data-lang="ru">
       <h2>Где хранятся данные</h2>
       <ul>
         <li>Локальная база данных на вашем устройстве</li>
@@ -238,7 +238,7 @@
   <!-- SECTION 4 -->
   <div class="section">
     <span class="section-icon">🚫</span>
-    <div data-lang="ru" class="visible">
+    <div data-lang="ru">
       <h2>Что мы НЕ делаем</h2>
       <ul>
         <li>Не продаём ваши данные</li>
@@ -261,7 +261,7 @@
   <!-- SECTION 5 -->
   <div class="section">
     <span class="section-icon">🗑️</span>
-    <div data-lang="ru" class="visible">
+    <div data-lang="ru">
       <h2>Удаление данных</h2>
       <p>Вы можете полностью удалить свой аккаунт и все данные прямо в приложении:</p>
       <div class="highlight">Настройки → Аккаунт → Удалить аккаунт</div>
@@ -278,7 +278,7 @@
   <!-- SECTION 6 -->
   <div class="section">
     <span class="section-icon">✉️</span>
-    <div data-lang="ru" class="visible">
+    <div data-lang="ru">
       <h2>Контакты</h2>
       <p>По вопросам конфиденциальности пишите нам:</p>
       <p><a href="mailto:florapoint.app@gmail.com" class="contact-link">florapoint.app@gmail.com</a></p>
@@ -292,17 +292,34 @@
 </main>
 
 <footer>
-  FloraPoint © 2026
+  <span data-lang="ru" style="display:inline">FloraPoint © 2026</span>
+  <span data-lang="en" style="display:none">FloraPoint © 2026</span>
 </footer>
 
 <script>
+  const titles = {
+    ru: 'Политика конфиденциальности',
+    en: 'Privacy Policy'
+  };
+
   function setLang(lang) {
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('[data-lang]').forEach(el => el.classList.remove('visible'));
-    document.querySelectorAll('[data-lang="' + lang + '"]').forEach(el => el.classList.add('visible'));
+    // кнопки
     document.querySelectorAll('.lang-btn').forEach(b => {
-      if (b.textContent.trim().toLowerCase() === lang) b.classList.add('active');
+      b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
     });
+
+    // все data-lang блоки (div, p, span)
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      const isMatch = el.getAttribute('data-lang') === lang;
+      if (el.tagName === 'SPAN') {
+        el.style.display = isMatch ? 'inline' : 'none';
+      } else {
+        el.classList.toggle('visible', isMatch);
+      }
+    });
+
+    // заголовок
+    document.getElementById('main-title').textContent = titles[lang];
   }
 
   const userLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
