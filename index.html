@@ -281,12 +281,12 @@
     <div data-lang="ru">
       <h2>Контакты</h2>
       <p>По вопросам конфиденциальности пишите нам:</p>
-      <p><a href="mailto:florapoint.app@gmail.com" class="contact-link">florapoint.app@gmail.com</a></p>
+      <p><a href="mailto:forestpoint.app@gmail.com" class="contact-link">forestpoint.app@gmail.com</a></p>
     </div>
     <div data-lang="en">
       <h2>Contact Us</h2>
       <p>If you have any questions, please contact us:</p>
-      <p><a href="mailto:florapoint.app@gmail.com" class="contact-link">florapoint.app@gmail.com</a></p>
+      <p><a href="mailto:forestpoint.app@gmail.com" class="contact-link">forestpoint.app@gmail.com</a></p>
     </div>
   </div>
 </main>
@@ -303,12 +303,10 @@
   };
 
   function setLang(lang) {
-    // кнопки
     document.querySelectorAll('.lang-btn').forEach(b => {
       b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
     });
 
-    // все data-lang блоки (div, p, span)
     document.querySelectorAll('[data-lang]').forEach(el => {
       const isMatch = el.getAttribute('data-lang') === lang;
       if (el.tagName === 'SPAN') {
@@ -318,7 +316,6 @@
       }
     });
 
-    // заголовок
     document.getElementById('main-title').textContent = titles[lang];
   }
 
