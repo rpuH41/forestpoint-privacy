@@ -15,13 +15,16 @@
       --muted: #6b7280;
       --border: #e5e0d8;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--cream);
       color: var(--ink);
       min-height: 100vh;
     }
+
     .lang-bar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -32,6 +35,7 @@
       background: var(--cream);
       border-bottom: 1px solid var(--border);
     }
+
     .lang-btn {
       border: 1px solid var(--border);
       background: transparent;
@@ -43,30 +47,36 @@
       color: var(--muted);
       transition: all 0.2s;
     }
+
     .lang-btn.active {
       background: var(--green);
       color: white;
       border-color: var(--green);
     }
+
     .lang-btn:not(.active):hover {
       border-color: var(--green-light);
       color: var(--green);
     }
+
     header {
       padding: 100px 24px 48px;
       max-width: 720px;
       margin: 0 auto;
     }
+
     .leaf {
       font-size: 48px;
       display: block;
       margin-bottom: 16px;
       animation: sway 4s ease-in-out infinite;
     }
+
     @keyframes sway {
       0%, 100% { transform: rotate(-5deg); }
       50% { transform: rotate(5deg); }
     }
+
     h1 {
       font-family: 'Fraunces', serif;
       font-size: clamp(2rem, 5vw, 3rem);
@@ -75,16 +85,19 @@
       line-height: 1.1;
       margin-bottom: 12px;
     }
+
     .subtitle {
       font-size: 14px;
       color: var(--muted);
       font-weight: 300;
     }
+
     main {
       max-width: 720px;
       margin: 0 auto;
       padding: 0 24px 80px;
     }
+
     .section {
       margin-bottom: 40px;
       padding: 28px 32px;
@@ -92,11 +105,13 @@
       border-radius: 20px;
       border: 1px solid var(--border);
     }
+
     .section-icon {
       font-size: 24px;
       margin-bottom: 10px;
       display: block;
     }
+
     h2 {
       font-family: 'Fraunces', serif;
       font-size: 1.25rem;
@@ -104,16 +119,19 @@
       color: var(--green);
       margin-bottom: 16px;
     }
+
     p {
       font-size: 15px;
       line-height: 1.7;
       color: #374151;
       margin-bottom: 10px;
     }
+
     ul {
       list-style: none;
       margin-top: 8px;
     }
+
     ul li {
       font-size: 15px;
       line-height: 1.7;
@@ -122,7 +140,9 @@
       position: relative;
       border-bottom: 1px solid var(--border);
     }
+
     ul li:last-child { border-bottom: none; }
+
     ul li::before {
       content: '🌿';
       position: absolute;
@@ -130,6 +150,7 @@
       font-size: 12px;
       top: 8px;
     }
+
     .highlight {
       background: var(--green-pale);
       border-left: 3px solid var(--green-light);
@@ -140,12 +161,14 @@
       color: var(--green);
       font-weight: 500;
     }
+
     .contact-link {
       color: var(--green);
       text-decoration: none;
       font-weight: 500;
       border-bottom: 1px solid var(--green-light);
     }
+
     footer {
       text-align: center;
       padding: 32px 24px;
@@ -153,11 +176,14 @@
       font-size: 13px;
       border-top: 1px solid var(--border);
     }
+
     [data-lang] { display: none; }
     [data-lang].visible { display: block; }
   </style>
 </head>
+
 <body>
+
 <div class="lang-bar">
   <button class="lang-btn" onclick="setLang('ru')">RU</button>
   &nbsp;
@@ -167,133 +193,464 @@
 <header>
   <span class="leaf">🌿</span>
   <h1 id="main-title"></h1>
-  <p class="subtitle" data-lang="ru">Последнее обновление: июнь 2026</p>
-  <p class="subtitle" data-lang="en">Last updated: June 2026</p>
+
+  <p class="subtitle" data-lang="ru">
+    Последнее обновление: октябрь 2026
+  </p>
+
+  <p class="subtitle" data-lang="en">
+    Last updated: October 2026
+  </p>
 </header>
 
 <main>
+
   <!-- SECTION 1 -->
   <div class="section">
     <span class="section-icon">📋</span>
+
     <div data-lang="ru">
-      <h2>Какие данные мы собираем</h2>
+      <h2>Какие данные обрабатывает ForestPoint</h2>
+
       <ul>
-        <li><strong>Локальные данные</strong> — все ваши приватные точки, описания и настройки хранятся только на устройстве.</li>
-        <li><strong>Данные аккаунта</strong> — при входе через Google: имя, email и уникальный идентификатор Google. Используются только для авторизации.</li>
-        <li><strong>Публичные точки</strong> — только те точки, которые вы сами решили опубликовать (галочка «Поделиться с сообществом»).</li>
-        <li><strong>Геолокация</strong> — используется только для отображения вашей позиции на карте и добавления точек вручную. Фоновое отслеживание не ведётся.</li>
-        <li><strong>Погодные данные</strong> — температура и влажность запрашиваются при добавлении точки.</li>
+        <li>
+          <strong>Данные аккаунта</strong> — при входе через Google могут
+          использоваться имя, адрес электронной почты и идентификатор
+          Google для авторизации.
+        </li>
+
+        <li>
+          <strong>Геолокация</strong> — используется для определения
+          текущего положения на карте, поиска ближайших грибных наблюдений
+          и формирования локального прогноза. ForestPoint не осуществляет
+          фоновое отслеживание местоположения.
+        </li>
+
+        <li>
+          <strong>Локальные данные</strong> — ваши приватные точки,
+          описания и настройки могут храниться локально на вашем устройстве.
+        </li>
+
+        <li>
+          <strong>Публичные точки</strong> — если вы самостоятельно
+          выбираете «Поделиться с сообществом», соответствующая точка
+          может быть сохранена в Firebase Firestore и показана другим
+          пользователям ForestPoint.
+        </li>
+
+        <li>
+          <strong>Данные о погоде</strong> — погодная информация может
+          запрашиваться для обработки грибных наблюдений и отображения
+          соответствующей информации пользователю.
+        </li>
       </ul>
     </div>
+
     <div data-lang="en">
-      <h2>What data we collect</h2>
+      <h2>What data ForestPoint processes</h2>
+
       <ul>
-        <li><strong>Local data</strong> — all your private points, descriptions and settings are stored only on your device.</li>
-        <li><strong>Account data</strong> — when signing in with Google: name, email and Google ID.</li>
-        <li><strong>Public points</strong> — only points you explicitly choose to share with the community.</li>
-        <li><strong>Location</strong> — used only to show your position and add points. No background tracking.</li>
-        <li><strong>Weather data</strong> — fetched when adding a point.</li>
+        <li>
+          <strong>Account data</strong> — when signing in with Google,
+          your name, email address and Google identifier may be used
+          for authentication.
+        </li>
+
+        <li>
+          <strong>Location</strong> — used to show your position on the map,
+          find nearby mushroom observations and provide a local mushroom
+          activity forecast. ForestPoint does not perform background
+          location tracking.
+        </li>
+
+        <li>
+          <strong>Local data</strong> — your private points, descriptions
+          and settings may be stored locally on your device.
+        </li>
+
+        <li>
+          <strong>Public points</strong> — when you explicitly choose
+          "Share with community", the corresponding point may be stored
+          in Firebase Firestore and displayed to other ForestPoint users.
+        </li>
+
+        <li>
+          <strong>Weather data</strong> — weather information may be
+          requested to process mushroom observations and provide
+          relevant information to users.
+        </li>
       </ul>
     </div>
   </div>
+
 
   <!-- SECTION 2 -->
   <div class="section">
-    <span class="section-icon">🔄</span>
+    <span class="section-icon">🍄</span>
+
     <div data-lang="ru">
-      <h2>Публичные и приватные точки</h2>
-      <p>По умолчанию все создаваемые точки — <strong>приватные</strong> и остаются только на вашем устройстве.</p>
-      <p>Вы можете сделать точку публичной, поставив галочку «Поделиться с сообществом». Только в этом случае она будет загружена в Firebase Firestore и станет видна другим пользователям.</p>
-      <p>Вы в любой момент можете удалить свои публичные точки.</p>
+      <h2>Данные из внешних источников</h2>
+
+      <p>
+        ForestPoint агрегирует общедоступную информацию из нескольких
+        внешних источников, чтобы формировать обзор недавней активности
+        грибов.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Threads</strong> — ForestPoint использует Threads API
+          для поиска общедоступных публикаций по заданным ключевым словам,
+          связанным с грибами и собирательством.
+        </li>
+
+        <li>
+          <strong>Reddit</strong> — ForestPoint использует публичный поиск
+          Reddit для поиска релевантных публикаций в общедоступных
+          сообществах.
+        </li>
+
+        <li>
+          <strong>Pikabu</strong> — ForestPoint может использовать
+          общедоступные публикации Pikabu как дополнительный источник
+          информации.
+        </li>
+
+        <li>
+          <strong>Географические данные</strong> — для определения
+          приблизительного местоположения, указанного в публичных
+          публикациях, могут использоваться сервисы геокодирования,
+          включая Nominatim / OpenStreetMap.
+        </li>
+      </ul>
+
+      <p>
+        ForestPoint использует эти источники в режиме чтения. Приложение
+        не публикует посты, не ставит оценки, не пишет комментарии,
+        не удаляет публикации и не выполняет действия модерации
+        в Threads или Reddit.
+      </p>
     </div>
+
     <div data-lang="en">
-      <h2>Public vs Private points</h2>
-      <p>By default, all points you create are <strong>private</strong> and stay only on your device.</p>
-      <p>You can make a point public by checking "Share with community". Only then will it be uploaded to Firebase Firestore.</p>
-      <p>You can delete your public points at any time.</p>
+      <h2>Data from external sources</h2>
+
+      <p>
+        ForestPoint aggregates publicly available information from
+        multiple external sources to provide an overview of recent
+        mushroom activity.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Threads</strong> — ForestPoint uses the Threads API
+          to search publicly available posts using mushroom- and
+          foraging-related keywords.
+        </li>
+
+        <li>
+          <strong>Reddit</strong> — ForestPoint uses Reddit's public
+          search functionality to find relevant posts from public
+          communities.
+        </li>
+
+        <li>
+          <strong>Pikabu</strong> — ForestPoint may use publicly
+          available Pikabu posts as an additional information source.
+        </li>
+
+        <li>
+          <strong>Geographic data</strong> — geocoding services,
+          including Nominatim / OpenStreetMap, may be used to identify
+          approximate locations mentioned in public posts.
+        </li>
+      </ul>
+
+      <p>
+        ForestPoint uses these sources in read-only mode. The application
+        does not publish posts, vote, write comments, delete posts,
+        or perform moderation actions on Threads or Reddit.
+      </p>
     </div>
   </div>
+
 
   <!-- SECTION 3 -->
   <div class="section">
-    <span class="section-icon">🗄️</span>
+    <span class="section-icon">🔎</span>
+
     <div data-lang="ru">
-      <h2>Где хранятся данные</h2>
-      <ul>
-        <li>Локальная база данных на вашем устройстве</li>
-        <li>Firebase Firestore (Google) — только для публичных точек</li>
-        <li>Firebase Authentication (Google) — для входа в аккаунт</li>
-      </ul>
+      <h2>Как используются данные Threads</h2>
+
+      <p>
+        ForestPoint использует разрешение Threads для поиска публикаций
+        по ключевым словам, связанным с грибами и собирательством.
+      </p>
+
+      <p>
+        Полученные публичные публикации могут содержать текст,
+        дату и время публикации и ссылку на оригинальную публикацию.
+        Эти данные обрабатываются для определения упоминаемых видов
+        грибов и приблизительного местоположения наблюдения.
+      </p>
+
+      <p>
+        Результаты затем объединяются с информацией из других публичных
+        источников и используются для формирования локального обзора
+        активности грибов в ForestPoint.
+      </p>
+
+      <div class="highlight">
+        ForestPoint не публикует контент от имени пользователя Threads,
+        не отвечает на публикации и не изменяет содержимое Threads.
+      </div>
     </div>
+
     <div data-lang="en">
-      <h2>Where data is stored</h2>
-      <ul>
-        <li>Local database on your device</li>
-        <li>Firebase Firestore — only for public points</li>
-        <li>Firebase Authentication — for sign-in</li>
-      </ul>
+      <h2>How Threads data is used</h2>
+
+      <p>
+        ForestPoint uses the Threads permission to search for posts
+        using mushroom- and foraging-related keywords.
+      </p>
+
+      <p>
+        Retrieved public posts may contain text, publication date and
+        time, and a link to the original post. This information is
+        processed to identify mentioned mushroom species and approximate
+        observation locations.
+      </p>
+
+      <p>
+        The results are combined with information from other public
+        sources and used to provide a local mushroom activity overview
+        in ForestPoint.
+      </p>
+
+      <div class="highlight">
+        ForestPoint does not publish content on behalf of Threads users,
+        reply to Threads posts, or modify Threads content.
+      </div>
     </div>
   </div>
+
 
   <!-- SECTION 4 -->
   <div class="section">
-    <span class="section-icon">🚫</span>
+    <span class="section-icon">🔄</span>
+
     <div data-lang="ru">
-      <h2>Что мы НЕ делаем</h2>
-      <ul>
-        <li>Не продаём ваши данные</li>
-        <li>Не используем данные для рекламы</li>
-        <li>Не отслеживаем геолокацию в фоне</li>
-        <li>Не делимся данными с кем-либо, кроме Firebase (Google)</li>
-      </ul>
+      <h2>Публичные и приватные точки</h2>
+
+      <p>
+        По умолчанию все создаваемые пользователем точки являются
+        <strong>приватными</strong> и хранятся локально на устройстве.
+      </p>
+
+      <p>
+        Пользователь может самостоятельно сделать точку публичной,
+        выбрав «Поделиться с сообществом». Только после этого точка
+        может быть загружена в Firebase Firestore и показана другим
+        пользователям.
+      </p>
+
+      <p>
+        Пользователь может удалить свои публичные точки через приложение.
+      </p>
     </div>
+
     <div data-lang="en">
-      <h2>What we do NOT do</h2>
-      <ul>
-        <li>We do not sell your data</li>
-        <li>We do not use your data for advertising</li>
-        <li>We do not track location in the background</li>
-        <li>We do not share data with anyone except Firebase</li>
-      </ul>
+      <h2>Public vs Private points</h2>
+
+      <p>
+        By default, all points created by a user are
+        <strong>private</strong> and stored locally on the device.
+      </p>
+
+      <p>
+        A user can choose to make a point public by selecting
+        "Share with community". Only then may the point be uploaded
+        to Firebase Firestore and displayed to other users.
+      </p>
+
+      <p>
+        Users can delete their public points through the application.
+      </p>
     </div>
   </div>
+
 
   <!-- SECTION 5 -->
   <div class="section">
-    <span class="section-icon">🗑️</span>
+    <span class="section-icon">🗄️</span>
+
     <div data-lang="ru">
-      <h2>Удаление данных</h2>
-      <p>Вы можете полностью удалить свой аккаунт и все данные прямо в приложении:</p>
-      <div class="highlight">Настройки → Аккаунт → Удалить аккаунт</div>
-      <p style="margin-top:12px">Все публичные точки будут удалены из облака. Локальные данные удаляются при удалении приложения.</p>
+      <h2>Где хранятся данные</h2>
+
+      <ul>
+        <li>Локальное хранилище на устройстве пользователя.</li>
+        <li>Firebase Authentication — для авторизации.</li>
+        <li>Firebase Firestore — для публичных пользовательских точек.</li>
+        <li>
+          Серверная обработка ForestPoint / Firebase Cloud Functions —
+          для получения и обработки данных внешних источников,
+          необходимых для работы прогноза.
+        </li>
+      </ul>
     </div>
+
     <div data-lang="en">
-      <h2>Data deletion</h2>
-      <p>You can delete your account and all data directly in the app:</p>
-      <div class="highlight">Settings → Account → Delete account</div>
-      <p style="margin-top:12px">All your public points will be removed from the cloud. Local data is deleted when you uninstall the app.</p>
+      <h2>Where data is stored</h2>
+
+      <ul>
+        <li>Local storage on the user's device.</li>
+        <li>Firebase Authentication — for authentication.</li>
+        <li>Firebase Firestore — for public user-submitted points.</li>
+        <li>
+          ForestPoint server-side processing / Firebase Cloud Functions —
+          for retrieving and processing external-source data required
+          for the forecast.
+        </li>
+      </ul>
     </div>
   </div>
+
 
   <!-- SECTION 6 -->
   <div class="section">
-    <span class="section-icon">✉️</span>
+    <span class="section-icon">🚫</span>
+
     <div data-lang="ru">
-      <h2>Контакты</h2>
-      <p>По вопросам конфиденциальности пишите нам:</p>
-      <p><a href="mailto:forestpoint.app@gmail.com" class="contact-link">forestpoint.app@gmail.com</a></p>
+      <h2>Что мы НЕ делаем</h2>
+
+      <ul>
+        <li>Не продаём персональные данные.</li>
+        <li>Не используем данные ForestPoint для персонализированной рекламы.</li>
+        <li>Не отслеживаем геолокацию в фоновом режиме.</li>
+        <li>Не публикуем контент в Threads от имени пользователя.</li>
+        <li>Не публикуем посты и комментарии в Reddit от имени пользователя.</li>
+        <li>
+          Не используем Threads API для управления профилем пользователя,
+          публикации, ответов или модерации.
+        </li>
+      </ul>
     </div>
+
     <div data-lang="en">
-      <h2>Contact Us</h2>
-      <p>If you have any questions, please contact us:</p>
-      <p><a href="mailto:forestpoint.app@gmail.com" class="contact-link">forestpoint.app@gmail.com</a></p>
+      <h2>What we do NOT do</h2>
+
+      <ul>
+        <li>We do not sell personal data.</li>
+        <li>We do not use ForestPoint data for personalized advertising.</li>
+        <li>We do not track location in the background.</li>
+        <li>We do not publish Threads content on behalf of users.</li>
+        <li>We do not publish Reddit posts or comments on behalf of users.</li>
+        <li>
+          We do not use the Threads API to manage user profiles,
+          publish content, reply to posts, or perform moderation.
+        </li>
+      </ul>
     </div>
   </div>
+
+
+  <!-- SECTION 7 -->
+  <div class="section">
+    <span class="section-icon">🗑️</span>
+
+    <div data-lang="ru">
+      <h2>Удаление данных</h2>
+
+      <p>
+        Пользователь может удалить свой аккаунт и связанные с ним
+        данные непосредственно в приложении:
+      </p>
+
+      <div class="highlight">
+        Настройки → Аккаунт → Удалить аккаунт
+      </div>
+
+      <p style="margin-top:12px">
+        При удалении аккаунта публичные точки пользователя удаляются
+        из Firebase Firestore. Локальные данные приложения могут быть
+        удалены вместе с данными приложения на устройстве.
+      </p>
+
+      <p>
+        Для вопросов, связанных с удалением данных или конфиденциальностью,
+        пользователь также может обратиться по адресу ниже.
+      </p>
+    </div>
+
+    <div data-lang="en">
+      <h2>Data deletion</h2>
+
+      <p>
+        Users can delete their account and associated data directly
+        in the application:
+      </p>
+
+      <div class="highlight">
+        Settings → Account → Delete account
+      </div>
+
+      <p style="margin-top:12px">
+        When an account is deleted, the user's public points are removed
+        from Firebase Firestore. Local application data may be removed
+        with the application data stored on the device.
+      </p>
+
+      <p>
+        For questions about data deletion or privacy, users may also
+        contact us using the address below.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- SECTION 8 -->
+  <div class="section">
+    <span class="section-icon">✉️</span>
+
+    <div data-lang="ru">
+      <h2>Контакты</h2>
+
+      <p>
+        По вопросам конфиденциальности, обработки или удаления данных:
+      </p>
+
+      <p>
+        <a href="mailto:forestpoint.app@gmail.com" class="contact-link">
+          forestpoint.app@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <div data-lang="en">
+      <h2>Contact Us</h2>
+
+      <p>
+        For questions about privacy, data processing or data deletion:
+      </p>
+
+      <p>
+        <a href="mailto:forestpoint.app@gmail.com" class="contact-link">
+          forestpoint.app@gmail.com
+        </a>
+      </p>
+    </div>
+  </div>
+
 </main>
 
 <footer>
-  <span data-lang="ru" style="display:inline">ForestPoint © 2026</span>
-  <span data-lang="en" style="display:none">ForestPoint © 2026</span>
+  <span data-lang="ru" style="display:inline">
+    ForestPoint © 2026
+  </span>
+
+  <span data-lang="en" style="display:none">
+    ForestPoint © 2026
+  </span>
 </footer>
 
 <script>
@@ -304,11 +661,15 @@
 
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(b => {
-      b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+      b.classList.toggle(
+        'active',
+        b.textContent.trim().toLowerCase() === lang
+      );
     });
 
     document.querySelectorAll('[data-lang]').forEach(el => {
       const isMatch = el.getAttribute('data-lang') === lang;
+
       if (el.tagName === 'SPAN') {
         el.style.display = isMatch ? 'inline' : 'none';
       } else {
@@ -319,8 +680,14 @@
     document.getElementById('main-title').textContent = titles[lang];
   }
 
-  const userLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
+  const userLang =
+    navigator.language &&
+    navigator.language.toLowerCase().startsWith('ru')
+      ? 'ru'
+      : 'en';
+
   setLang(userLang);
 </script>
+
 </body>
 </html>
